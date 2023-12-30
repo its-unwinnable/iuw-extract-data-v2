@@ -1,0 +1,8 @@
+.DS_Store
+.pytest_cache
+.coverage
+__pycache__
+.vscode
+.env
+venv
+things.py
