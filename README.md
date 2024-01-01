@@ -1,6 +1,9 @@
 # Extract Data v2
 
-Extract samples to train models 
+Extract samples thanks to the Riot API to train models.
+
+## Setup
+Create a file name `.env` using the `.env-example` file as an example.
 
 ## Installation
 ````bash
