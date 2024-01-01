@@ -1,4 +1,4 @@
-from app import helpers
+from iuw_extract_data import helpers
 
 from rito import RitoClient, ExtractorClient
 from rito.models import League, Entry

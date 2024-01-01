@@ -13,7 +13,7 @@ pytest-cov==4.1.0
 pytest-mock==3.12.0
 python-dotenv==1.0.0
 requests==2.31.0
-rito @ git+https://github.com/mathiasgout/rito.git@7b1f18cc3ba99ffcdc96dd206a108705e8f37ebb
+rito @ git+https://github.com/mathiasgout/rito.git@bca7496e8f156120854a04b9c5889d093ff8f686
 tomli==2.0.1
 typing_extensions==4.9.0
 urllib3==2.1.0

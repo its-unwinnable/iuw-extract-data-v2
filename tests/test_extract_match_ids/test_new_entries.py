@@ -1,4 +1,4 @@
-from app import extract_match_ids
+from iuw_extract_data import extract_match_ids
 from tests.mocked.mocked_rito_client import TestRitoClient
 from tests.examples import entries_examples
 

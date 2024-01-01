@@ -1,4 +1,4 @@
-from app import extract_match_ids
+from iuw_extract_data import extract_match_ids
 from tests.mocked.mocked_rito_client import TestRitoClient
 from tests.examples import summoner_examples, leagues_examples
 
@@ -11,7 +11,7 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY(mocker):
     # Mocks
     mocker.patch("tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", return_value=summoner_examples.summoner_dict_example)
     mocker.patch("tests.mocked.mocked_rito_client.TestMatchAPI.list_by_puuid", return_value=["match_id1", "match_id2"])
-    mocker.patch("app.helpers.get_timestamp_utc", return_value=186400)
+    mocker.patch("iuw_extract_data.helpers.get_timestamp_utc", return_value=186400)
     
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(
@@ -36,12 +36,15 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY(mocker):
 def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY_MATCH_IDS_EMPTY(mocker):
     # Mocks
     test_list_match_ids = [["match_id1", "match_id2"], []]
-    mocker.patch("tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", return_value=summoner_examples.summoner_dict_example)
+    mocker.patch(
+        "tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", 
+        return_value=summoner_examples.summoner_dict_example
+    )
     mocker.patch(
         "tests.mocked.mocked_rito_client.TestMatchAPI.list_by_puuid", 
         side_effect=lambda puuid, queue, start_time: test_list_match_ids.pop()
     )
-    mocker.patch("app.helpers.get_timestamp_utc", return_value=186400)
+    mocker.patch("iuw_extract_data.helpers.get_timestamp_utc", return_value=186400)
     
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(
@@ -79,10 +82,16 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY_MATCH_IDS_EMPTY(mo
 
 def test_extractmatchids_next_match_id_SUMMONER_IDS_EMPTY(mocker):
     # Mocks
-    mocker.patch("tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", return_value=summoner_examples.summoner_dict_example)
+    mocker.patch(
+        "tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", 
+        return_value=summoner_examples.summoner_dict_example
+    )
     mocker.patch("tests.mocked.mocked_rito_client.TestMatchAPI.list_by_puuid", return_value=["match_id1", "match_id2"])
-    mocker.patch("app.extract_match_ids.ExtractMatchIds._next_league", return_value=leagues_examples.league_example)
-    mocker.patch("app.helpers.get_timestamp_utc", return_value=186400)
+    mocker.patch(
+        "iuw_extract_data.extract_match_ids.ExtractMatchIds._next_league", 
+        return_value=leagues_examples.league_example
+    )
+    mocker.patch("iuw_extract_data.helpers.get_timestamp_utc", return_value=186400)
     
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(

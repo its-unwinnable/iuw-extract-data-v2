@@ -1,4 +1,4 @@
-from app import extract_match_ids
+from iuw_extract_data import extract_match_ids
 from tests.mocked.mocked_rito_client import TestRitoClient
 from tests.examples import leagues_examples
 
@@ -7,7 +7,7 @@ from rito import ExtractorClient
 
 def test_extractmatchids_next_league_CLASSIC_TIER(mocker):
     # Mocks
-    mocker.patch("app.extract_match_ids.ExtractMatchIds._next_league_id", return_value="league_id1")
+    mocker.patch("iuw_extract_data.extract_match_ids.ExtractMatchIds._next_league_id", return_value="league_id1")
     mocker.patch("tests.mocked.mocked_rito_client.TestLeagues.by_league_id", return_value=leagues_examples.league_dict_example)
     
     # Calls

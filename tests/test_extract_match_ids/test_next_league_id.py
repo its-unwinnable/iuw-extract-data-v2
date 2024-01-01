@@ -1,4 +1,4 @@
-from app import extract_match_ids
+from iuw_extract_data import extract_match_ids
 from tests.mocked.mocked_rito_client import TestRitoClient
 from tests.examples import entries_examples
 
@@ -22,7 +22,7 @@ def test_extractmatchids_next_league_id_UNUSED_NOT_EMPTY():
 
 def test_extractmatchids_next_league_id_UNUSED_EMPTY(mocker):
     # Mocks
-    mocker.patch("app.extract_match_ids.ExtractMatchIds._new_entries", return_value=entries_examples.entries_example)
+    mocker.patch("iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", return_value=entries_examples.entries_example)
 
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(
@@ -46,7 +46,7 @@ def test_extractmatchids_next_league_id_UNUSED_EMPTY_ENTRIES_EMPTY(mocker):
     test_entries = [entries_examples.entries_example, []]
 
     mocker.patch(
-        "app.extract_match_ids.ExtractMatchIds._new_entries", 
+        "iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", 
         side_effect=lambda division, page: test_entries.pop()
     )
 
@@ -72,7 +72,7 @@ def test_extractmatchids_next_league_id_UNUSED_EMPTY_ENTRIES_EMPTY_LAST_DIVISION
     test_entries = [entries_examples.entries_example, []]
 
     mocker.patch(
-        "app.extract_match_ids.ExtractMatchIds._new_entries", 
+        "iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", 
         side_effect=lambda division, page: test_entries.pop()
     )
 
