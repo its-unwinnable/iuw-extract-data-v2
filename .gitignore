@@ -3,6 +3,5 @@
 .coverage
 __pycache__
 .vscode
-.env
 venv
 things.py
