@@ -26,6 +26,12 @@ class TestMatchAPI:
     def list_by_puuid(self, puuid, start_time = None, end_time = None, queue = None, type = None, start = None, count = 20):
         """list of match ID by summoner PUUID"""
 
+    def by_match_id(self, match_id):
+        """match by match ID"""
+
+    def timeline_by_match_id(self, match_id):
+        """timeline by match ID"""
+
 
 class TestLeagueAPI:
     entries = TestEntries()

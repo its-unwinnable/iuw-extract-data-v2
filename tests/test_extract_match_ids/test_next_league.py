@@ -7,14 +7,20 @@ from rito import ExtractorClient
 
 def test_extractmatchids_next_league_CLASSIC_TIER(mocker):
     # Mocks
-    mocker.patch("iuw_extract_data.extract_match_ids.ExtractMatchIds._next_league_id", return_value="league_id1")
-    mocker.patch("tests.mocked.mocked_rito_client.TestLeagues.by_league_id", return_value=leagues_examples.league_dict_example)
+    mocker.patch(
+        "iuw_extract_data.extract_match_ids.ExtractMatchIds._next_league_id", 
+        return_value="15b4ec05-bd78-4d4b-8da2-ff68bd37c493"
+    )
+    mocker.patch(
+        "tests.mocked.mocked_rito_client.TestLeagues.by_league_id", 
+        return_value=leagues_examples.league_dict_example
+    )
     
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(
         rito_client=TestRitoClient(), 
         extractor_client=ExtractorClient(), 
-        tier="tier"
+        tier="EMERALD"
     )
     league = extractor_match_ids._next_league()
 

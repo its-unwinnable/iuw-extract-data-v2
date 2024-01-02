@@ -9,7 +9,10 @@ from rito import ExtractorClient
 
 def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY(mocker):
     # Mocks
-    mocker.patch("tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", return_value=summoner_examples.summoner_dict_example)
+    mocker.patch(
+        "tests.mocked.mocked_rito_client.TestSummonerAPI.by_id", 
+        return_value=summoner_examples.summoner_dict_example
+    )
     mocker.patch("tests.mocked.mocked_rito_client.TestMatchAPI.list_by_puuid", return_value=["match_id1", "match_id2"])
     mocker.patch("iuw_extract_data.helpers.get_timestamp_utc", return_value=186400)
     
