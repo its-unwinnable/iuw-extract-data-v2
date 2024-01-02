@@ -4,7 +4,7 @@ Extract samples thanks to the Riot API to train models.
 
 ## Installation
 ````bash
-pip install git+ssh://git@github.com/its-unwinnable/extract-data-v2.git
+pip install git+https://git@github.com/its-unwinnable/extract-data-v2.git
 ````
 
 ## Example
