@@ -30,7 +30,7 @@ class ExtractData:
                 logger.info(f"progression: {len(samples)}/{n} ({len(samples)/n:.2%}")
 
             except Exception as e:
-                logger.error(f"{e.__class__.__name__}: {e}")
+                logger.error(f"{e.__class__.__name__}: {repr(e)}")
         
         return samples
 
