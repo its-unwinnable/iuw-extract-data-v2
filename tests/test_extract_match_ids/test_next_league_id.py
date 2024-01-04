@@ -22,7 +22,10 @@ def test_extractmatchids_next_league_id_UNUSED_NOT_EMPTY():
 
 def test_extractmatchids_next_league_id_UNUSED_EMPTY(mocker):
     # Mocks
-    mocker.patch("iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", return_value=entries_examples.entries_example)
+    mocker.patch(
+        "iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", 
+        return_value=entries_examples.entries_by_rank_example
+    )
 
     # Calls
     extractor_match_ids = extract_match_ids.ExtractMatchIds(
@@ -43,7 +46,7 @@ def test_extractmatchids_next_league_id_UNUSED_EMPTY(mocker):
 
 def test_extractmatchids_next_league_id_UNUSED_EMPTY_ENTRIES_EMPTY(mocker):
     # Mocks
-    test_entries = [entries_examples.entries_example, []]
+    test_entries = [entries_examples.entries_by_rank_example, []]
 
     mocker.patch(
         "iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", 
@@ -69,7 +72,7 @@ def test_extractmatchids_next_league_id_UNUSED_EMPTY_ENTRIES_EMPTY(mocker):
 
 def test_extractmatchids_next_league_id_UNUSED_EMPTY_ENTRIES_EMPTY_LAST_DIVISION(mocker):
     # Mocks
-    test_entries = [entries_examples.entries_example, []]
+    test_entries = [entries_examples.entries_by_rank_example, []]
 
     mocker.patch(
         "iuw_extract_data.extract_match_ids.ExtractMatchIds._new_entries", 

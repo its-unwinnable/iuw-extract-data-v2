@@ -2,6 +2,9 @@ class TestEntries:
     def by_rank(self, queue: str, tier: str, division: str, page: int = 1):
         """entries by rank"""
 
+    def by_summoner(summoner_id: str):
+        """entries by summoner ID"""
+
 
 class TestLeagues:
     def by_league_id(self, league_id: str):
@@ -33,6 +36,11 @@ class TestMatchAPI:
         """timeline by match ID"""
 
 
+class TestChampionMasteryAPI:
+    def by_puuid(self, puuid: str):
+        """champion masteries by puuid"""
+
+
 class TestLeagueAPI:
     entries = TestEntries()
     leagues = TestLeagues()
@@ -42,3 +50,4 @@ class TestRitoClient:
     league = TestLeagueAPI()
     summoner = TestSummonerAPI()
     match = TestMatchAPI()
+    champion_mastery = TestChampionMasteryAPI()

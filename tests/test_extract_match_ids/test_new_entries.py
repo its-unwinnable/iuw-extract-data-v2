@@ -9,7 +9,7 @@ def test_extractmatchids_new_entries(mocker):
     # Mocks
     mocker.patch(
         "tests.mocked.mocked_rito_client.TestEntries.by_rank", 
-        return_value=entries_examples.entries_list_example
+        return_value=entries_examples.entries_list_by_rank_example
     )
 
     # Calls
@@ -21,7 +21,7 @@ def test_extractmatchids_new_entries(mocker):
     entries = extractor_match_ids._new_entries(division="I", page=3)
 
     # Verifs
-    assert entries == entries_examples.entries_example
+    assert entries == entries_examples.entries_by_rank_example
     extractor_match_ids.rito_client.league.entries.by_rank.assert_called_once_with(
         queue="RANKED_SOLO_5x5", 
         tier="tier", 

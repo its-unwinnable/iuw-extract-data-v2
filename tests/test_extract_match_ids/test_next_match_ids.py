@@ -22,15 +22,17 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY(mocker):
         extractor_client=ExtractorClient(), 
         tier="tier"
     )
-    extractor_match_ids._summoner_ids = ["summoner_id1"]
+    extractor_match_ids._summoner_ids = ["Tr_eUweC_R276FidCsrUZW-P1rbvpASIr6axy8O6PBn3fbg"]
     match_id = extractor_match_ids.next_match_id()
 
     # Verifs
     assert match_id == "match_id1"
     assert extractor_match_ids._match_ids == ["match_id1"]
-    extractor_match_ids.rito_client.summoner.by_id.assert_called_once_with(summoner_id="summoner_id1")
+    extractor_match_ids.rito_client.summoner.by_id.assert_called_once_with(
+        summoner_id="Tr_eUweC_R276FidCsrUZW-P1rbvpASIr6axy8O6PBn3fbg"
+    )
     extractor_match_ids.rito_client.match.list_by_puuid.assert_called_once_with(
-        puuid='eZZVkO20LI7XCkfeqBn8X0eae2lNJFxgzlnq3QvjzRTQ-FI2oeBq-mfYGElhsUKgndHdGccJ9zuA0g',
+        puuid='5PxpwmAj85lpMrqF0JQDOEUGyECT-dY1IOxeOi0cBPvYXkyDZglM-B8PV8igMDq2KCfglujJ7OBnpA',
         queue='420',
         start_time=100000
     )
@@ -70,12 +72,12 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_NOT_EMPTY_MATCH_IDS_EMPTY(mo
     extractor_match_ids.rito_client.match.list_by_puuid.assert_has_calls(
         [
             call(
-                puuid='eZZVkO20LI7XCkfeqBn8X0eae2lNJFxgzlnq3QvjzRTQ-FI2oeBq-mfYGElhsUKgndHdGccJ9zuA0g', 
+                puuid='5PxpwmAj85lpMrqF0JQDOEUGyECT-dY1IOxeOi0cBPvYXkyDZglM-B8PV8igMDq2KCfglujJ7OBnpA', 
                 queue='420', 
                 start_time=100000
             ),
             call(
-                puuid='eZZVkO20LI7XCkfeqBn8X0eae2lNJFxgzlnq3QvjzRTQ-FI2oeBq-mfYGElhsUKgndHdGccJ9zuA0g', 
+                puuid='5PxpwmAj85lpMrqF0JQDOEUGyECT-dY1IOxeOi0cBPvYXkyDZglM-B8PV8igMDq2KCfglujJ7OBnpA', 
                 queue='420', 
                 start_time=100000
             )
@@ -112,7 +114,7 @@ def test_extractmatchids_next_match_id_SUMMONER_IDS_EMPTY(mocker):
         summoner_id="_bq69Vh8mC1EEwjhdRCmgnrI6fUCzL6M58yqw6J-rs-upQS8"
     )
     extractor_match_ids.rito_client.match.list_by_puuid.assert_called_once_with(
-        puuid='eZZVkO20LI7XCkfeqBn8X0eae2lNJFxgzlnq3QvjzRTQ-FI2oeBq-mfYGElhsUKgndHdGccJ9zuA0g',
+        puuid='5PxpwmAj85lpMrqF0JQDOEUGyECT-dY1IOxeOi0cBPvYXkyDZglM-B8PV8igMDq2KCfglujJ7OBnpA',
         queue='420',
         start_time=100000
     )

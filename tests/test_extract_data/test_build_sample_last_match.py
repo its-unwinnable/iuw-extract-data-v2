@@ -1,5 +1,5 @@
 from iuw_extract_data import ExtractData
-from tests.mocked.mocker_extract_match_ids import TestExtractMatchIds
+from tests.mocked.mocked_extract_match_ids import TestExtractMatchIds
 from tests.examples import match_examples, match_timeline_examples
 
 
